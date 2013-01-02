@@ -6,7 +6,11 @@
 
 export venv=$OPENSHIFT_REPO_DIR/data/venv
 
-virtualenv $venv
-source $venv/bin/activate
+if [ -d $venv ] ;
+    echo "Not rebuilding virtualenv."
+else
+    virtualenv $venv
+    source $venv/bin/activate
 
-pip install mdemos.server mdemos.menus mdemos.metrics
+    pip install mdemos.server mdemos.menus mdemos.metrics
+fi
