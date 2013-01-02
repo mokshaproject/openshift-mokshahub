@@ -3,3 +3,10 @@
 # available.  Otherwise it will execute while your application is stopped
 # before the deploy step.  This script gets executed directly, so it
 # could be python, php, ruby, etc.
+
+export venv=$OPENSHIFT_REPO_DIR/data/venv
+
+virtualenv $venv
+source $venv/bin/activate
+
+pip install mdemos.server mdemos.menus mdemos.metrics
