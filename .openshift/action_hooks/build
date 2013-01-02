@@ -6,7 +6,7 @@
 
 export venv=$OPENSHIFT_REPO_DIR/data/venv
 
-if [ -d $venv ] ;
+if [ -d $venv ] ; then
     echo "Not rebuilding virtualenv."
 else
     virtualenv $venv
