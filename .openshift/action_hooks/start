@@ -6,5 +6,8 @@
 # Do this because moksha expects its config file in either /etc/ or in the cwd.
 cd $OPENSHIFT_REPO_DIR/diy/
 
+export logfile=$OPENSHIFT_HOMEDIR/diy-0.1/logs/server.log
+echo " ** Starting up **" >> $logfile
+
 # Actually start it and redirect logs
-nohup $OPENSHIFT_REPO_DIR/data/venv/bin/moksha-hub > $OPENSHIFT_HOMEDIR/diy-0.1/logs/server.log 2>&1 &
+nohup $OPENSHIFT_REPO_DIR/data/venv/bin/moksha-hub >> $logfile 2>&1 &
